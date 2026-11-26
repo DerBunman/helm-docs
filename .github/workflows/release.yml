@@ -59,7 +59,7 @@ jobs:
             -ldflags "-X main.version=$version" \
             -o staging/helm-docs ./cmd/helm-docs
           staging/helm-docs --version
-          go install golang.org/x/vuln/cmd/govulncheck@v1.1.4
+          go install golang.org/x/vuln/cmd/govulncheck@v1.10.0
           "$(go env GOPATH)/bin/govulncheck" ./...
           "$(go env GOPATH)/bin/govulncheck" -mode=binary staging/helm-docs
           go version -m staging/helm-docs > release/go-buildinfo.txt
